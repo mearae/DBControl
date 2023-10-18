@@ -10,6 +10,7 @@ public class CRUD_Frame {
     private JButton button2 = null;
     private JButton button3 = null;
     private JButton button4 = null;
+    private DataController crud = null;
 
     public CRUD_Frame() {
         this.jTextArea = new JTextArea();
@@ -19,6 +20,7 @@ public class CRUD_Frame {
         this.button2 = new JButton("R");
         this.button3 = new JButton("U");
         this.button4 = new JButton("D");
+        crud = new DataController();
         setFrame();
         setjPanel();
         setButton1();
@@ -43,7 +45,7 @@ public class CRUD_Frame {
         button1.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                crud("create","",scan("name"),scan("age"),scan("email"));
+                crud.crud("create","",ScanManager.scan("name"),ScanManager.scan("age"),ScanManager.scan("email"));
             }
         });
     }
@@ -52,7 +54,7 @@ public class CRUD_Frame {
         button2.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                crud("read",scan("line"),"","","");
+                crud.crud("read",ScanManager.scan("line"),"","","");
             }
         });
     }
@@ -61,7 +63,7 @@ public class CRUD_Frame {
         button3.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                crud("update",scan("line"),scan("name"),scan("age"),scan("email"));
+                crud.crud("update",ScanManager.scan("line"),ScanManager.scan("name"),ScanManager.scan("age"),ScanManager.scan("email"));
             }
         });
     }
@@ -70,7 +72,7 @@ public class CRUD_Frame {
         button4.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                crud("delete",scan("line"),"","","");
+                crud.crud("delete",ScanManager.scan("line"),"","","");
             }
         });
     }

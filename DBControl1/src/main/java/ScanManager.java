@@ -2,17 +2,17 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ScanManager {
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static String scan(String key){
         String value = null;
 
         try {
-            System.out.println(key+" : ");
+            System.out.print(key + " : ");
 
             value = scanner.nextLine();
         } catch (NoSuchElementException e) {
-            System.out.println("잘못 입력");
+            System.out.println("잘못 입력하셨습니다.");
         }
         return value;
     }
